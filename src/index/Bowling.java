@@ -14,9 +14,4 @@ public class Bowling {
      System.out.print("s");
       
   }
-  
-  public void test() {
-    System.out.print(throwOne.bothThrows);
-  }
-  
 }
