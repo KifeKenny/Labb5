@@ -182,7 +182,29 @@ public class FrameTest {
     int score = bowlingGame2.playGame(myThrows);
     int score2 = bowlingGame2.playGame(myThrows2);
  
-    assertEquals("should be valid 112", 30, score);
+    assertEquals("should be valid 30", 30, score);
     assertEquals("should be valid 129", 129, score2);
+  }
+  
+  @Test
+  public void multiSpareTest() {
+    Bowling bowlingGame2 = new Bowling();
+    
+    Throw[] myThrows = {
+        new Throw(new int[] {8, 2}),
+        new Throw(new int[] {5, 5}),
+        new Throw(new int[] {7, 2}),
+        new Throw(new int[] {3, 6}),
+        new Throw(new int[] {4, 4}),
+        new Throw(new int[] {5, 3}),
+        new Throw(new int[] {3, 3}),
+        new Throw(new int[] {4, 5}),
+        new Throw(new int[] {8, 1}),
+        new Throw(new int[] {2, 6})
+        };
+     
+    int score = bowlingGame2.playGame(myThrows);
+ 
+    assertEquals("should be valid 98", 98, score);
   }
 }
