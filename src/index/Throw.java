@@ -6,8 +6,7 @@ public class Throw {
   public int[] bothThrows;
   public boolean validThrow;
   
-  public Throw(int order, int[] kast) {
-    throwOrder = order;
+  public Throw(int[] kast) {
     bothThrows = kast;
     
     score = bothThrows[0] + bothThrows[1];
