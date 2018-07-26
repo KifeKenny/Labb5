@@ -34,7 +34,9 @@ public class Bowling {
       }
       
       if(gameThrows[i].strike) {
-        score += 10 + gameThrows[i + 1].score;
+        score = multiStrike(i, score, gameThrows);
+       
+        
       } else if(gameThrows[i].spare) {
         score += 10 + gameThrows[i + 1].bothThrows[0];
       } else {
@@ -47,5 +49,29 @@ public class Bowling {
     }
     
     return score;
+  }
+  
+  public int multiStrike(int i, int score, Throw[] gameThrows) {
+    int x = 0;
+    
+    while(i != 10) {
+      if(gameThrows[i + 1].strike) {
+        if (x == 20) {
+          x = 10 + 10 + 10;
+          return score + x;
+        }
+        x = 10 + 10;
+      } else {
+        if (x == 20) {
+          x = 20 + gameThrows[i + 1].bothThrows[0];
+          return score + x;
+        }
+        x = 10 + gameThrows[i + 1].bothThrows[0] + gameThrows[i + 1].bothThrows[1];
+        return score + x;
+      }
+      i += 1;
+    }
+    
+    return -1;
   }
 }
