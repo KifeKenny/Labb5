@@ -4,7 +4,7 @@ public class Throw {
   
   public int throwOrder, score;
   public int[] bothThrows;
-  public boolean validThrow, strike;
+  public boolean validThrow, strike, spare;
   
   public Throw(int[] kast) {
     bothThrows = kast;
@@ -13,6 +13,7 @@ public class Throw {
     validThrow = isValid();
     
     strike = isStrike(bothThrows[0]);
+    spare  = isSpare(score);
   }
   
   public boolean isValid() {
@@ -35,6 +36,16 @@ public class Throw {
     if(firstThrow == 10) {
       result = true;
     }
+    return result;
+  }
+  
+  public boolean isSpare(int score) {
+    boolean result = false;
+    
+    if(score == 10 && !strike) {
+      result = true;
+    }
+
     return result;
   }
 }

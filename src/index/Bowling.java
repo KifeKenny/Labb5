@@ -35,6 +35,8 @@ public class Bowling {
       
       if(gameThrows[i].strike) {
         score += 10 + gameThrows[i + 1].score;
+      } else if(gameThrows[i].spare) {
+        score += 10 + gameThrows[i + 1].bothThrows[0];
       } else {
         score += gameThrows[i].score; 
       }
