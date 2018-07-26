@@ -33,7 +33,11 @@ public class Bowling {
         return invalid;
       }
       
-      score += gameThrows[i].score;
+      if(gameThrows[i].strike) {
+        score += 10 + gameThrows[i + 1].score;
+      } else {
+        score += gameThrows[i].score; 
+      }
       
       String mes = "Throws: [" + gameThrows[i].bothThrows[0] + ", " + gameThrows[i].bothThrows[1]; 
       mes += "] Current Score: " + score + "\n";
