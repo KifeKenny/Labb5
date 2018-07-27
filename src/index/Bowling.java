@@ -6,6 +6,7 @@ public class Bowling {
   public int frame = 10;
   public int invalid = -1;
   public Throw throw1 = new Throw(new int[] {2, 4});
+  public String mes;
   
   
   
@@ -38,6 +39,14 @@ public class Bowling {
             return invalid;
           }
           score += 10 + gameThrows[i + 1].bothThrows[0] + gameThrows[i + 1].bothThrows[1];
+          
+          mes = "Throws: [" + gameThrows[i].bothThrows[0] + ", " + gameThrows[i].bothThrows[1]; 
+          mes += "] Current Score: " + score + "\n";
+          mes += "Throws: [" + gameThrows[i + 1].bothThrows[0] + ", " + gameThrows[i + 1].bothThrows[1]; 
+          mes += "] Current Score: " + score + "\n";
+          
+          System.out.print(mes);
+          
           return score;
         }
         
@@ -48,7 +57,12 @@ public class Bowling {
             System.out.print("Invalid amount of throws game ending \n");
             return invalid;
           }
+          mes = "Throws: [" + gameThrows[i].bothThrows[0] + ", " + gameThrows[i].bothThrows[1]; 
+          mes += "] Current Score: " + score + "\n";
+          mes += "Throws: [" + gameThrows[i + 1].bothThrows[0] + ", " + gameThrows[i + 1].bothThrows[1]; 
+          mes += "] Current Score: " + score + "\n";
           
+          System.out.print(mes);
           return score;
         }
         
@@ -62,6 +76,13 @@ public class Bowling {
             return invalid;
           }
           
+          mes = "Throws: [" + gameThrows[i].bothThrows[0] + ", " + gameThrows[i].bothThrows[1]; 
+          mes += "] Current Score: " + score + "\n";
+          mes += "Throws: [" + gameThrows[i + 1].bothThrows[0]; 
+          mes += "] Current Score: " + score + "\n";
+          
+          System.out.print(mes);
+          
           return score;
         }
         
@@ -69,7 +90,7 @@ public class Bowling {
         score += gameThrows[i].score; 
       }
       
-      String mes = "Throws: [" + gameThrows[i].bothThrows[0] + ", " + gameThrows[i].bothThrows[1]; 
+      mes = "Throws: [" + gameThrows[i].bothThrows[0] + ", " + gameThrows[i].bothThrows[1]; 
       mes += "] Current Score: " + score + "\n";
       System.out.print(mes);  
     }

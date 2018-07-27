@@ -301,4 +301,27 @@ public class FrameTest {
  
     assertEquals("should be valid 300", 300, score);
   }
+  
+  @Test
+  public void realGameTest() {
+    Bowling bowlingGame2 = new Bowling();
+
+    Throw[] myThrows = {
+        new Throw(new int[] {6, 3}),
+        new Throw(new int[] {7, 1}),
+        new Throw(new int[] {8, 2}),
+        new Throw(new int[] {7, 2}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {6, 2}),
+        new Throw(new int[] {7, 3}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {8, 0}),
+        new Throw(new int[] {7, 3}),
+        new Throw(new int[] {10, 0}),
+        };
+     
+    int score = bowlingGame2.playGame(myThrows);
+ 
+    assertEquals("should be valid 135", 135, score);
+  }
 }
