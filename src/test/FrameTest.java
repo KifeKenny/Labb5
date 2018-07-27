@@ -207,4 +207,28 @@ public class FrameTest {
  
     assertEquals("should be valid 98", 98, score);
   }
+  
+  
+  @Test
+  public void lastSpareTest() {
+    Bowling bowlingGame2 = new Bowling();
+
+    Throw[] myThrows = {
+        new Throw(new int[] {1, 5}),
+        new Throw(new int[] {3, 6}),
+        new Throw(new int[] {7, 2}),
+        new Throw(new int[] {3, 6}),
+        new Throw(new int[] {4, 4}),
+        new Throw(new int[] {5, 3}),
+        new Throw(new int[] {3, 3}),
+        new Throw(new int[] {4, 5}),
+        new Throw(new int[] {8, 1}),
+        new Throw(new int[] {2, 8}),
+        new Throw(new int[] {7, 0})
+        };
+     
+    int score = bowlingGame2.playGame(myThrows);
+ 
+    assertEquals("should be valid 90", 90, score);
+  }
 }

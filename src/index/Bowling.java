@@ -8,25 +8,18 @@ public class Bowling {
   public Throw throw1 = new Throw(new int[] {2, 4});
   
   
-  /**
-   * @param args
-   */
-  public static void main(String[] args) {
-     System.out.print("s");
-      
-  }
-  
   
   public int playGame(Throw[] gameThrows) {
     System.out.print("Game start!! \n");
     int score = 0;
     
-    if(gameThrows.length != frame) {
-      System.out.print("invalid amount of throws, game ending \n");
-      return invalid;
-    }
-    
+
     for(int i=0; i<gameThrows.length; i++) {
+      
+      if(i > 9 && !gameThrows[i].spare && !gameThrows[i].strike) {
+        System.out.print("Invalid amount of throws game ending \n");
+        return invalid;
+      }
       
       if(!gameThrows[i].validThrow) {
         System.out.print("Invalid throw, game ending \n");
@@ -39,6 +32,16 @@ public class Bowling {
         
       } else if(gameThrows[i].spare) {
         score += 10 + gameThrows[i + 1].bothThrows[0];
+        
+        if(i == 9) {
+          if(gameThrows.length != 11) {
+            System.out.print("Invalid amount of throws game ending \n");
+            return invalid;
+          }
+          
+          return score;
+        }
+        
       } else {
         score += gameThrows[i].score; 
       }
