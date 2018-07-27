@@ -22,11 +22,25 @@ public class Bowling {
       }
       
       if(!gameThrows[i].validThrow) {
-        System.out.print("Invalid throw, game ending \n");
-        return invalid;
+        if(i == 9 && gameThrows[i].strike && gameThrows[i].bothThrows[0] >= 10 && gameThrows[i].bothThrows[1] >= 10) {
+          System.out.print("");
+        } else {
+          System.out.print("Invalid throw, game ending \n");
+          return invalid;
+        }
       }
       
       if(gameThrows[i].strike) {
+        
+        if(i == 9) {
+          if(gameThrows.length != 11) {
+            System.out.print("Invalid amount of throws game ending \n");
+            return invalid;
+          }
+          score += 10 + gameThrows[i + 1].bothThrows[0] + gameThrows[i + 1].bothThrows[1];
+          return score;
+        }
+        
         score = multiStrike(i, score, gameThrows);
         
         if(i == 9) {

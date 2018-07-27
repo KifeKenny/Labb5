@@ -278,4 +278,27 @@ public class FrameTest {
  
     assertEquals("should be valid 93", 93, score);
   }
+  
+  @Test
+  public void bestScoreTest() {
+    Bowling bowlingGame2 = new Bowling();
+
+    Throw[] myThrows = {
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {10, 10}),
+        };
+     
+    int score = bowlingGame2.playGame(myThrows);
+ 
+    assertEquals("should be valid 300", 300, score);
+  }
 }
