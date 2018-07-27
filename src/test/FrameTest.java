@@ -231,4 +231,51 @@ public class FrameTest {
  
     assertEquals("should be valid 90", 90, score);
   }
+  
+  
+  @Test
+  public void lastStrikeTest() {
+    Bowling bowlingGame2 = new Bowling();
+
+    Throw[] myThrows = {
+        new Throw(new int[] {1, 5}),
+        new Throw(new int[] {3, 6}),
+        new Throw(new int[] {7, 2}),
+        new Throw(new int[] {3, 6}),
+        new Throw(new int[] {4, 4}),
+        new Throw(new int[] {5, 3}),
+        new Throw(new int[] {3, 3}),
+        new Throw(new int[] {4, 5}),
+        new Throw(new int[] {8, 1}),
+        new Throw(new int[] {10, 0}),
+        new Throw(new int[] {7, 2})
+        };
+     
+    int score = bowlingGame2.playGame(myThrows);
+ 
+    assertEquals("should be valid 92", 92, score);
+  }
+  
+  @Test
+  public void bonusIsStrikeTest() {
+    Bowling bowlingGame2 = new Bowling();
+
+    Throw[] myThrows = {
+        new Throw(new int[] {1, 5}),
+        new Throw(new int[] {3, 6}),
+        new Throw(new int[] {7, 2}),
+        new Throw(new int[] {3, 6}),
+        new Throw(new int[] {4, 4}),
+        new Throw(new int[] {5, 3}),
+        new Throw(new int[] {3, 3}),
+        new Throw(new int[] {4, 5}),
+        new Throw(new int[] {8, 1}),
+        new Throw(new int[] {2, 8}),
+        new Throw(new int[] {10, 0})
+        };
+     
+    int score = bowlingGame2.playGame(myThrows);
+ 
+    assertEquals("should be valid 93", 93, score);
+  }
 }

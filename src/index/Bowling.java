@@ -28,7 +28,16 @@ public class Bowling {
       
       if(gameThrows[i].strike) {
         score = multiStrike(i, score, gameThrows);
-       
+        
+        if(i == 9) {
+          if(gameThrows.length != 11) {
+            System.out.print("Invalid amount of throws game ending \n");
+            return invalid;
+          }
+          
+          return score;
+        }
+        
         
       } else if(gameThrows[i].spare) {
         score += 10 + gameThrows[i + 1].bothThrows[0];
